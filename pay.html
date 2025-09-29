@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informasi Pembayaran</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome 6 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+</head>
+  <style>
+    /* Animasi fade in */
+    .fade-in {
+      animation: fadeIn 1s ease-in-out forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
+    }
+    /* Efek hover tombol */
+    .btn-copy:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen font-sans">
+
+  <!-- Header -->
+  <header class="flex items-center justify-between px-6 py-4 border-b border-gray-800">
+    <div class="flex items-center gap-3">
+      <button class="text-2xl">☰</button>
+      <h1 class="text-lg font-bold tracking-wide">Hawilpay</h1>
+    </div>
+  </header>
+
+  <!-- Konten -->
+  <main class="px-6 py-8 space-y-6">
+    <h2 class="text-2xl font-bold mb-4 text-center fade-in">Informasi Pembayaran</h2>
+
+    <!-- QRIS -->
+    <div class="bg-gray-900 p-6 rounded-2xl shadow-lg fade-in">
+      <h3 class="text-xl font-semibold mb-3">QRIS</h3>
+      <img src="qris.jpg" alt="QRIS" class="rounded-lg mx-auto mb-3 w-56 shadow-md">
+      <p class="text-center text-gray-400 text-sm">Scan untuk membayar via QRIS</p>
+    </div>
+
+    <!-- Dana -->
+    <div class="bg-gray-900 p-5 rounded-2xl shadow-lg flex justify-between items-center fade-in">
+      <div>
+        <h3 class="text-lg font-semibold">Dana <span class="text-gray-300 text-xs">a/n Muhammad Ilham Aripin</span></h3>
+        <p id="dana" class="text-gray-300">0814 6232 8581</p>
+      </div>
+      <button onclick="copyText('dana')" class="btn-copy bg-indigo-600 px-4 py-2 rounded-xl transition-all shadow-md">
+        <i class="fa-solid fa-copy"></i>
+      </button>
+    </div>
+
+    <!-- Gopay -->
+    <div class="bg-gray-900 p-5 rounded-2xl shadow-lg flex justify-between items-center fade-in">
+      <div>
+        <h3 class="text-lg font-semibold">Gopay <span class="text-gray-300 text-xs">a/n Muhammad Ilham Aripin</span></h3>
+        <p id="gopay" class="text-gray-300">0857 2096 0371</p>
+      </div>
+      <button onclick="copyText('gopay')" class="btn-copy bg-indigo-600 px-4 py-2 rounded-xl transition-all shadow-md">
+        <i class="fa-solid fa-copy"></i>
+      </button>
+    </div>
+
+    <!-- OVO -->
+    <div class="bg-gray-900 p-5 rounded-2xl shadow-lg flex justify-between items-center fade-in">
+      <div>
+        <h3 class="text-lg font-semibold">OVO <span class="text-gray-300 text-xs">a/n Iyam</span></h3>
+        <p id="ovo" class="text-gray-300">0814 6232 8581</p>
+      </div>
+      <button onclick="copyText('ovo')" class="btn-copy bg-indigo-600 px-4 py-2 rounded-xl transition-all shadow-md">
+        <i class="fa-solid fa-copy"></i>
+      </button>
+    </div>
+
+    <!-- Seabank -->
+    <div class="bg-gray-900 p-5 rounded-2xl shadow-lg flex justify-between items-center fade-in">
+      <div>
+        <h3 class="text-lg font-semibold">SeaBank <span class="text-gray-300 text-xs">a/n Muhammad Ilham Aripin</span></h3>
+        <p id="seabank" class="text-gray-300">9017 4455 4548</p>
+      </div>
+      <button onclick="copyText('seabank')" class="btn-copy bg-indigo-600 px-4 py-2 rounded-xl transition-all shadow-md">
+        <i class="fas fa-copy"></i>
+      </button>
+    </div>
+  </main>
+
+  <!-- Script copy -->
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor " + id.toUpperCase() + " berhasil disalin!");
+      });
+    }
+  </script>
+
+</body>
+</html>
